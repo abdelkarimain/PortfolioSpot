@@ -1,3 +1,6 @@
+import { repoUrl } from "../constants";
+import { ArrowRightIcon } from "../constants/icons";
+
 export default function Hero() {
   return (
     <div className="pt-8">
@@ -15,29 +18,14 @@ export default function Hero() {
 
         <div className="mt-10 flex gap-4">
           <a
-            href="https://github.com/ibelick/background-snippets"
+            href={repoUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center"
           >
             <button className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-[#FAFAFA] text-[#FAFAFA]-foreground hover:bg-[#FAFAFA]/90 h-10 px-4 py-2">
-              Go to GitHub{" "}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width={16}
-                height={16}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="pl-0.5"
-              >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </button>{" "}
+              Go to GitHub <ArrowRightIcon className="pl-0.5" />
+            </button>
           </a>
         </div>
       </div>

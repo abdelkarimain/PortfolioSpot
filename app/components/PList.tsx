@@ -28,7 +28,7 @@ const PList = () => {
     <div className="overflow-hidden px-4 pb-20 pt-20 md:px-10">
       <div className="pb-20 flex justify-center gap-4 overflow-auto ">
         {categories.map((category) => (
-          <PCategory cat={category} />
+          <PCategory key={category.name} cat={category} />
         ))}
       </div>
 
