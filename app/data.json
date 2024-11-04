@@ -1,19 +1,9 @@
 {
   "items": [
     {
-      "OwnerName": "PItem",
-      "Category": "css",
-      "github": "https://github.com/",
-      "demo": "https://github.com/"
-    },
-    {
-      "OwnerName": "PItem",
-      "Category": "css",
-      "github": "https://github.com/",
-      "demo": "https://github.com/"
-    },
-    {
-      "OwnerName": "PItem",
+      "id": 1,
+      "OwnerName": "Brittany Chiang",
+      "image": "https://github.com/abdelkarimain/PortfolioSpot/blob/main/public/assets/brittany-chiang.png?raw=true",
       "Category": "css",
       "github": "https://github.com/",
       "demo": "https://github.com/"

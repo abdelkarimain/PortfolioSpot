@@ -1,7 +1,6 @@
 import PItem from "./PItem";
 
 type PCatProps = { name: string; nbElems: number };
-
 const PCategory = ({ cat }: { cat: PCatProps }) => {
   return (
     <button
@@ -13,9 +12,17 @@ const PCategory = ({ cat }: { cat: PCatProps }) => {
   );
 };
 
+export interface PListProps {
+  id: number;
+  OwnerName: string;
+  nbElems: number;
+  image: string;
+  category: string;
+  github: string;
+  demo: string;
+}
 
-
-const PList = () => {
+const PList = ({ data }: { data: PListProps[] }) => {
   const categories = [
     { name: "All", nbElems: 4 },
     { name: "JavaScript", nbElems: 4 },
@@ -33,11 +40,9 @@ const PList = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-6 pb-6 md:grid-cols-2 ">
-        <PItem />
-        <PItem />
-        <PItem />
-        <PItem />
-        <PItem />
+        {data.map((item) => (
+          <PItem key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import img from "../assets/tz3oe8lbftjvobsub95l.png";
+import { PListProps } from "./PList";
 
-export default function PItem() {
+export default function PItem({ item }: { item: PListProps }) {
   const bgColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
   return (
@@ -18,7 +18,7 @@ export default function PItem() {
         <div className="w-full relative h-fit">
           <Image
             className="w-full rounded-t-lg aspect-video h-full object-cover"
-            src={img}
+            src={item.image}
             alt="Next"
             width={500}
             height={500}
@@ -27,7 +27,7 @@ export default function PItem() {
       </div>
       <div className="p-3">
         <span className="font-semibold text-2xl font-mono drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-          Abdelkarim Ain
+          {item.OwnerName}
         </span>
 
         {/* <div className="mt-2 flex items-center  gap-x-5">
