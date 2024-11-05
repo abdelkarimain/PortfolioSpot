@@ -2,9 +2,32 @@
   "items": [
     {
       "id": 1,
-      "OwnerName": "Brittany Chiang",
-      "image": "https://github.com/abdelkarimain/PortfolioSpot/blob/main/public/assets/brittany-chiang.png?raw=true",
-      "Category": "css",
+      "owner": "Brittany Chiang",
+      "image": "/assets/brittany-chiang.png?raw=true",
+      "stack": ["css", "html", "javascript"],
+      "github": "https://github.com/",
+      "demo": "https://github.com/"
+    },
+    {
+      "id": 2,
+      "owner": "Brittany Chiang",
+      "image": "/assets/brittany-chiang.png?raw=true",
+      "stack": ["css", "html", "javascript"],
+      "github": "https://github.com/",
+      "demo": "https://github.com/"
+    },
+    {
+      "id": 3,
+      "owner": "Brittany Chiang",
+      "image": "/assets/brittany-chiang.png?raw=true",
+      "stack": ["css", "html", "javascript"],
+      "github": "https://github.com/",
+      "demo": "https://github.com/"
+    },{
+      "id": 4,
+      "owner": "Brittany Chiang",
+      "image": "/assets/brittany-chiang.png?raw=true",
+      "stack": ["nextjs", "react", "typescript"],
       "github": "https://github.com/",
       "demo": "https://github.com/"
     }

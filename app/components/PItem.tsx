@@ -1,20 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PListProps } from "./PList";
+import { PListProps } from "../types";
 
 export default function PItem({ item }: { item: PListProps }) {
   const bgColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-
   return (
-    <Link
-      href={"/"}
+    <div
       style={{
         backgroundColor: bgColor,
         backgroundImage: `url("/assets/dark-mosaic.png")`,
       }}
       className={`text-white relative min-h-[300px] w-full overflow-hidden rounded-lg ring-1 ring-slate-900/10`}
     >
-      <div className="w- relative">
+      <Link href={"/"} className="w- relative">
         <div className="w-full relative h-fit">
           <Image
             className="w-full rounded-t-lg aspect-video h-full object-cover"
@@ -24,26 +22,28 @@ export default function PItem({ item }: { item: PListProps }) {
             height={500}
           />
         </div>
-      </div>
+      </Link>
       <div className="p-3">
-        <span className="font-semibold text-2xl font-mono drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-          {item.OwnerName}
-        </span>
+        <Link
+          href={"/"}
+          className="font-semibold text-2xl font-mono drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
+        >
+          {item.owner}
+        </Link>
 
-        {/* <div className="mt-2 flex items-center  gap-x-5">
-          <div className="flex items-center gap-x-2">
-            <p
-              style={{
-                backgroundColor: darkenColor(bgColor, 0.4),
-                border: `2px solid ${darkenColor(bgColor, 0.1)}`,
-              }}
-              className="text-sm cursor-pointer border-slate-600 text-slate-950 rounded-xl px-2 py-1"
-            >
-              CSS
-            </p>
+        <div className="mt-2 flex items-center  gap-x-5">
+          <div className="flex items-center flex-wrap gap-x-2">
+            {item.stack.map((stack) => (
+              <p
+                key={stack}
+                className="mb-2 text-sm font-sans font-semibold cursor-fancy bg-[#00091D] border-2 border-gray-500 text-gray-50 rounded-xl px-2 py-1 hover:bg-red-500"
+              >
+                {stack}
+              </p>
+            ))}
           </div>
-        </div> */}
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }
