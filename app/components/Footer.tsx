@@ -1,5 +1,5 @@
 import { personalUrl, repoUrl } from "../constants";
-import { DemoIcon, GithubSourceIcon } from "../constants/icons";
+import { DemoIcon } from "../constants/icons";
 
 export default function Footer() {
   return (

@@ -1,12 +1,13 @@
+import Link from "next/link";
 import { githubUrl, twitterUrl } from "../constants";
 import { GithubIcon, TwitterIcon } from "../constants/icons";
 
 export default function Header() {
   return (
     <header className="flex items-center justify-between py-8">
-      <div className="text-3xl font-mono font-medium text-gray-900 dark:text-gray-50">
+      <Link href={"/"} className="text-3xl font-mono font-medium text-gray-900 dark:text-gray-50">
         PSpot
-      </div>
+      </Link>
       <nav className="flex gap-6">
         <a
           href={twitterUrl}
