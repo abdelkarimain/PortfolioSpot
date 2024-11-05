@@ -3,10 +3,10 @@
     {
       "id": 1,
       "owner": "Brittany Chiang",
-      "image": "/assets/brittany-chiang.png?raw=true",
-      "stack": ["css", "html", "javascript"],
-      "github": "https://github.com/",
-      "demo": "https://github.com/"
+      "image": "/assets/brittany-chiang.png",
+      "stack": ["React", "Gatsby", "Styled-components"],
+      "github": "https://github.com/bchiang7/v4",
+      "demo": "https://v4.brittanychiang.com"
     },
     {
       "id": 2,
@@ -23,7 +23,8 @@
       "stack": ["css", "html", "javascript"],
       "github": "https://github.com/",
       "demo": "https://github.com/"
-    },{
+    },
+    {
       "id": 4,
       "owner": "Brittany Chiang",
       "image": "/assets/brittany-chiang.png?raw=true",

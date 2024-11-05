@@ -4,6 +4,7 @@ import { promises as fs } from "fs";
 import { PListProps } from "./types";
 import PList from "./components/PList";
 import { revalidatePath } from "next/cache";
+import Footer from "./components/Footer";
 
 let selectedCategory: string | null = null;
 
@@ -89,6 +90,7 @@ export default async function Home() {
         </div>
       </div>
       <PList data={filteredData} />
+      <Footer />
     </>
   );
 }

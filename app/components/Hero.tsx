@@ -10,10 +10,10 @@ export default function Hero() {
         </h2>
 
         <p className="mt-6 text-center text-lg text-gray-600 dark:text-gray-200">
-          Discover a curated collection of inspiring{" "}
-          <span className="cursor-fancy opacity-70"> developer portfolios</span>{" "}
-          , designed to spark creativity and showcase the best in web design and
-          technical skills.
+          Discover a curated collection of inspiring
+          <span className="cursor-fancy opacity-70"> open source </span>
+          developer portfolios, designed to spark creativity and showcase the
+          best in web design and technical skills.
         </p>
 
         <div className="mt-10 flex gap-4">

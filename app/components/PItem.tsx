@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PListProps } from "../types";
+import { DemoIcon, GithubSourceIcon } from "../constants/icons";
 
 export default function PItem({ item }: { item: PListProps }) {
   const bgColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
@@ -12,7 +13,7 @@ export default function PItem({ item }: { item: PListProps }) {
       }}
       className={`text-white relative min-h-[300px] w-full overflow-hidden rounded-lg ring-1 ring-slate-900/10`}
     >
-      <Link href={"/"} className="w- relative">
+      <div className="w- relative">
         <div className="w-full relative h-fit">
           <Image
             className="w-full rounded-t-lg aspect-video h-full object-cover"
@@ -22,14 +23,32 @@ export default function PItem({ item }: { item: PListProps }) {
             height={500}
           />
         </div>
-      </Link>
+      </div>
       <div className="p-3">
-        <Link
-          href={"/"}
-          className="font-semibold text-2xl font-mono drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
-        >
-          {item.owner}
-        </Link>
+        <div className="flex justify-between items-center">
+          <span className="font-semibold text-2xl font-mono drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+            {item.owner}
+          </span>
+
+          <div className="flex justify-end items-center gap-4">
+            <a
+              href={item.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex bg-[#00091D] rounded-full p-1"
+            >
+              <GithubSourceIcon className="h-6 w-6 text-white transition-colors hover:text-gray-200" />
+            </a>
+            <a
+              href={item.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex bg-[#00091D] rounded-full p-1"
+            >
+              <DemoIcon className="h-6 w-6 text-white transition-colors hover:text-gray-200" />
+            </a>
+          </div>
+        </div>
 
         <div className="mt-2 flex items-center  gap-x-5">
           <div className="flex items-center flex-wrap gap-x-2">
