@@ -1,9 +1,9 @@
-import { personalUrl, repoUrl } from "../constants";
-import { DemoIcon } from "../constants/icons";
+import { personalUrl, repoUrl } from "./constants";
+import { DemoIcon } from "./icons";
 
 export default function Footer() {
   return (
-    <footer className="py-8 text-white font-mono">
+    <footer className="py-8 text-white">
       <div className="mx-auto mb-16 flex max-w-3xl flex-col items-center space-y-4 px-8 text-center">
         <p>
           Made by{" "}
@@ -28,5 +28,5 @@ export default function Footer() {
         </p>
       </div>
     </footer>
-  );
+  )
 }

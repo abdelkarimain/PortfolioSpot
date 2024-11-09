@@ -1,4 +1,4 @@
-import { IconTypes } from "../types";
+import { IconTypes } from "../../types";
 
 const GithubIcon = ({
   width = "24",

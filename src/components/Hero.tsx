@@ -1,11 +1,11 @@
-import { repoUrl } from "../constants";
-import { ArrowRightIcon } from "../constants/icons";
+import { repoUrl } from "./constants";
+import { ArrowRightIcon } from "./icons";
 
 export default function Hero() {
   return (
     <div className="pt-8">
       <div className="relative mx-auto flex max-w-2xl flex-col items-center">
-        <h2 className="text-center text-3xl font-mono font-medium text-gray-900 dark:text-gray-50 sm:text-6xl">
+        <h2 className="text-center text-3xl font-medium text-gray-900 dark:text-gray-50 sm:text-6xl">
           Portfolio Spot
         </h2>
 
