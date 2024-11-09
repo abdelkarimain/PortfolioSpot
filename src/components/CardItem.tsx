@@ -1,9 +1,18 @@
-import Image from "next/image";
 import { PListProps } from "../types";
-import { DemoIcon, GithubSourceIcon } from "../constants/icons";
+import { DemoIcon, GithubSourceIcon } from "./icons";
 
-export default function PItem({ item }: { item: PListProps }) {
-  const bgColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+const bgColorMap: { [key: number]: string } = {};
+
+const generateBgColor = (id: number) => {
+  if (!bgColorMap[id]) {
+    bgColorMap[id] = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  }
+  return bgColorMap[id];
+};
+
+export default function CardItem({ item }: { item: PListProps }) {
+  const bgColor = generateBgColor(item.id);
+
   return (
     <div
       style={{
@@ -14,10 +23,10 @@ export default function PItem({ item }: { item: PListProps }) {
     >
       <div className="w- relative">
         <div className="w-full relative h-fit">
-          <Image
-            className="w-full rounded-t-lg aspect-video h-full object-cover"
-            src={item.image}
-            alt="Next"
+          <img
+            className="w-full rounded-t-lg aspect-video"
+            src={`assets/portfolios/${item.image}`}
+            alt={item.image}
             width={500}
             height={500}
           />
