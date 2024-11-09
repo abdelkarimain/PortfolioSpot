@@ -1,7 +1,6 @@
 {
   "items": [
     {
-      "id": 1,
       "owner": "Brittany Chiang v4",
       "image": "brittany-chiang-v4.png",
       "freamwork": "Gatsby",
@@ -10,13 +9,20 @@
       "demo": "https://v4.brittanychiang.com"
     },
     {
-      "id": 2,
       "owner": "Anurag Hazra",
       "image": "anurag-hazra.png",
       "freamwork": "React",
       "stack": ["React", "Styled-components", "GraphQL"],
       "github": "https://github.com/anuraghazra/anuraghazra.github.io",
       "demo": "https://anuraghazra.github.io"
+    },
+    {
+      "owner": "Victor Eke",
+      "image": "victor-eke.png",
+      "freamwork": "Next.js",
+      "stack": ["Next.js", "Sanity", "Tailwind CSS"],
+      "github": "https://github.com/Evavic44/victoreke.com",
+      "demo": "https://victoreke.com/"
     }
   ]
 }
