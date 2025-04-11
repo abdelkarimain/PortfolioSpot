@@ -1,32 +1,49 @@
-import { personalUrl, repoUrl } from "./constants";
-import { DemoIcon } from "./icons";
+import Link from "next/link";
+import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
-export default function Footer() {
+export function Footer() {
   return (
-    <footer className="py-8 text-white">
-      <div className="mx-auto mb-16 flex max-w-3xl flex-col items-center space-y-4 px-8 text-center">
-        <p>
-          Made by{" "}
-          <a
-            href={personalUrl}
-            target="_blank"
-            className="mr-1 inline-flex items-center gap-1 space-x-1 text-blue-400 hover:text-blue-300"
-          >
-            Abdelkarim Ain
-            <DemoIcon />
-          </a>
-        </p>
-        <p>
-          This project is open source you can find it on{" "}
-          <a
-            href={repoUrl}
-            target="_blank"
-            className="mr-1 inline-flex items-center space-x-1 text-blue-400 hover:text-blue-300"
-          >
-            Github
-          </a>
-        </p>
+    <footer className="border-t border-border/40 py-6">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-4 md:mb-0">
+            <p className="text-sm text-muted-foreground">
+              &copy; {new Date().getFullYear()} PortfolioSpot. All rights
+              reserved.
+            </p>
+          </div>
+          <div className="flex space-x-4">
+            <Link
+              href="https://github.com"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Github size={20} />
+              <span className="sr-only">GitHub</span>
+            </Link>
+            <Link
+              href="https://twitter.com"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Twitter size={20} />
+              <span className="sr-only">Twitter</span>
+            </Link>
+            <Link
+              href="https://linkedin.com"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Linkedin size={20} />
+              <span className="sr-only">LinkedIn</span>
+            </Link>
+            <Link
+              href="mailto:hello@example.com"
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Mail size={20} />
+              <span className="sr-only">Email</span>
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
-  )
+  );
 }
