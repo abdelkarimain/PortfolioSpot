@@ -1,16 +1,10 @@
+import { Portfolio } from "@/lib/data";
 import { blurDataImage } from "@/lib/utils";
+import { urlFor } from "@/sanity/lib/image";
 import { Github, Heart, LinkIcon } from "lucide-react";
 import Image from "next/image";
 
-interface ProjectCardProps {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-}
-
-export function ProjectCard({ title, image, technologies }: ProjectCardProps) {
+export function ProjectCard({ portfolio }: { portfolio: Portfolio }) {
   return (
     <div>
       <div className="card-hover bg-card rounded-md overflow-hidden h-full flex flex-col">
@@ -18,22 +12,26 @@ export function ProjectCard({ title, image, technologies }: ProjectCardProps) {
           <Image
             fill
             priority
-            alt={title}
+            alt={portfolio.owner}
             sizes={"50"}
             placeholder="blur"
             blurDataURL={blurDataImage}
-            src={image || "/placeholder.svg"}
-            className="rounded-md object-cover"
+            src={
+              portfolio.image
+                ? urlFor(portfolio.image).url()
+                : "/placeholder.svg"
+            }
+            className="object-cover h-80 object-top rounded-t-md"
           />
         </div>
         <div className="p-4 flex-1 flex flex-col">
           <h3 className="text-lg font-bold text-secondary-foreground/90 mb-2">
-            {title}
+            {portfolio.owner}
           </h3>
           <div className="flex flex-wrap gap-2">
-            {technologies.map((tech) => (
+            {portfolio.technologies.map((tech, idx) => (
               <span
-                key={tech}
+                key={idx}
                 className="text-xs px-2 py-1 bg-secondary text-secondary-foreground rounded"
               >
                 {tech}
@@ -42,14 +40,19 @@ export function ProjectCard({ title, image, technologies }: ProjectCardProps) {
           </div>
           <div className="flex flex-wrap gap-2 border-t border-secondary mt-4 py-2">
             <a
-              href="#"
+              href={portfolio.url}
+              target="_blank"
               className="px-2 py-1  bg-secondary text-secondary-foreground rounded cursor-pointer"
             >
               <LinkIcon className="h-6 w-6 hover:text-primary" />
             </a>
-            <button className="px-2 py-1  bg-secondary text-secondary-foreground rounded cursor-pointer">
+            <a
+              href={portfolio.github}
+              target="_blank"
+              className="px-2 py-1  bg-secondary text-secondary-foreground rounded cursor-pointer"
+            >
               <Github className="h-6 w-6 hover:text-primary" />
-            </button>
+            </a>
 
             <button className="px-2 py-1 bg-secondary text-secondary-foreground rounded cursor-pointer">
               <Heart className="h-6 w-6 hover:text-primary" />

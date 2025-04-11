@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,6 +21,7 @@ export default function HomeLayout({
         {children}
       </main>
       <Footer />
+      <Toaster />
     </div>
   );
 }

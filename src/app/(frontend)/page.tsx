@@ -1,72 +1,27 @@
-"use client";
-
-import { useState } from "react";
 import { ProjectCard } from "@/components/project-card";
+import { getCategories, getPortfolios } from "@/lib/data";
+import Link from "next/link";
+// import { Suspense } from "react";
 
-export default function ProjectsPage() {
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+type SearchParams = {
+  category?: string;
+};
 
-  const projects = [
-    {
-      id: "1",
-      title: "Lorem, ipsum dolor",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea explicabo magnam possimus quisquam ratione officiis perspiciatis incidunt reiciendis provident repudiandae.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "Next js", "Tailwindcss"],
-      category: "web",
-    },
-    {
-      id: "2",
-      title: "Lorem, ipsum dolor",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea explicabo magnam possimus quisquam ratione officiis perspiciatis incidunt reiciendis provident repudiandae.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "Next js", "Tailwindcss"],
-      category: "web",
-    },
-    {
-      id: "3",
-      title: "Lorem, ipsum dolor",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea explicabo magnam possimus quisquam ratione officiis perspiciatis incidunt reiciendis provident repudiandae.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "Next js", "Tailwindcss"],
-      category: "web",
-    },
-    {
-      id: "4",
-      title: "Lorem, ipsum dolor",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea explicabo magnam possimus quisquam ratione officiis perspiciatis incidunt reiciendis provident repudiandae.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "Next js", "Tailwindcss"],
-      category: "web",
-    },
-    {
-      id: "5",
-      title: "Lorem, ipsum dolor",
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea explicabo magnam possimus quisquam ratione officiis perspiciatis incidunt reiciendis provident repudiandae.",
-      image: "/placeholder.svg?height=400&width=600",
-      technologies: ["React", "Next js", "Tailwindcss"],
-      category: "web",
-    },
-  ];
-
-  const categories = [
-    { id: "all", name: "All Projects" },
-    { id: "web", name: "Web Development" },
-    { id: "ai", name: "AI & Machine Learning" },
-    { id: "blockchain", name: "Blockchain" },
-    { id: "data", name: "Data Visualization" },
-    { id: "ar", name: "AR/VR" },
-  ];
-
-  const filteredProjects =
-    activeFilter === "all"
-      ? projects
-      : projects.filter((project) => project.category === activeFilter);
+export default async function ProjectsPage({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}) {
+  const portfolios = await getPortfolios();
+  const categories = await getCategories();
+  
+  const currentCategory = searchParams.category || 'all';
+  
+  // Filter portfolios based on the selected category
+  const filteredPortfolios = 
+    currentCategory === 'all' 
+      ? portfolios 
+      : portfolios.filter(p => p.category === currentCategory);
 
   return (
     <div className="space-y-8">
@@ -90,32 +45,41 @@ export default function ProjectsPage() {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        {categories.map((category) => (
-          <button
-            key={category.id}
-            onClick={() => setActiveFilter(category.id)}
+        <Link 
+          href="/"
+          className={`px-3 py-1 text-sm rounded-md transition-colors ${
+            currentCategory === 'all'
+              ? "bg-primary/70 text-secondary-foreground"
+              : "bg-secondary text-secondary-foreground/80 hover:bg-secondary/80"
+          }`}
+        >
+          All
+        </Link>
+        {categories.map((category, idx) => (
+          <Link
+            key={idx}
+            href={`/?category=${encodeURIComponent(category)}`}
             className={`px-3 py-1 text-sm rounded-md transition-colors ${
-              activeFilter === category.id
+              currentCategory === category
                 ? "bg-primary/70 text-secondary-foreground"
                 : "bg-secondary text-secondary-foreground/80 hover:bg-secondary/80"
             }`}
           >
-            {category.name}
-          </button>
+            {category}
+          </Link>
         ))}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProjects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            id={project.id}
-            title={project.title}
-            description={project.description}
-            image={project.image}
-            technologies={project.technologies}
-          />
-        ))}
+        {filteredPortfolios.length > 0 ? (
+          filteredPortfolios.map((portfolio) => (
+            <ProjectCard portfolio={portfolio} key={portfolio.id} />
+          ))
+        ) : (
+          <p className="col-span-full text-center text-muted-foreground py-8">
+            No portfolios found in this category.
+          </p>
+        )}
       </div>
     </div>
   );

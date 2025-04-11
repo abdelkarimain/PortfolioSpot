@@ -3,8 +3,8 @@ import { type SchemaTypeDefinition } from "sanity";
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     {
-      name: "project",
-      title: "Project",
+      name: "portfolio",
+      title: "Portfolio",
       type: "document",
       fields: [
         {
@@ -39,9 +39,14 @@ export const schema: { types: SchemaTypeDefinition[] } = {
           type: "url",
         },
         {
-          name: "isFeatured",
-          title: "Is Featured",
+          name: "approved",
+          title: "Is Approved?",
           type: "boolean",
+        },
+        {
+          name: "publishedAt",
+          title: "Published At",
+          type: "datetime",
         },
       ],
     },
