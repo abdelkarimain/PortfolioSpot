@@ -17,7 +17,6 @@ export default function MobileNav() {
 
   const navItems = [
     { name: "home", path: "/" },
-    { name: "Submit", path: "/submit-portfolio" },
     { name: "About", path: "/about" },
   ];
 

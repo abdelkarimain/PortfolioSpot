@@ -4,13 +4,9 @@ import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
 import MobileNav from "./mobile-nav";
 import NavItem from "./nav-item";
+import SubmitPortfolio from "./submit-portfolio";
 
 export function Header() {
-  const navItems = [
-    { name: "Submit", path: "/submit-portfolio" },
-    { name: "About", path: "/about" },
-  ];
-
   return (
     <header className="border-b border-border/40 backdrop-blur-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
@@ -22,15 +18,13 @@ export function Header() {
           >
             🎯PSpot
           </Link>
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-4">
             <ul className="hidden md:flex items-center space-x-4">
-              {navItems.map((item) => (
-                <li key={item.path}>
-                  <NavItem name={item.name} path={item.path} />
-                </li>
-              ))}
+              <li>
+                <NavItem name={"About"} path={"/about"} />
+              </li>
             </ul>
-
+            <SubmitPortfolio />
             <MobileNav />
             <ModeToggle />
           </div>

@@ -17,7 +17,7 @@ export default function NavItem({
         "text-primary font-semibold": pathname.includes(path),
       })}
     >
-      <span className="text-yellow-400 me-2"></span>{name}
+      {name}
     </Link>
   );
 }
