@@ -1,4 +1,5 @@
-import { client } from "./sanity/client";
+import { client } from "./sanity-client";
+
 
 
 export type Portfolio = {

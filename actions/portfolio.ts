@@ -1,7 +1,6 @@
 "use server";
 
-import { client } from "@/lib/sanity/client";
-
+import { client } from "@/lib/sanity-client";
 
 type PortfolioData = {
   owner: string;

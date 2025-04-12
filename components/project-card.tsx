@@ -1,5 +1,5 @@
 import { Portfolio } from "@/lib/data";
-import { urlFor } from "@/lib/sanity/client";
+import { urlFor } from "@/lib/client";
 import { blurDataImage } from "@/lib/utils";
 import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
