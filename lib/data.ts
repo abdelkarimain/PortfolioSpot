@@ -50,5 +50,6 @@ export async function getCategories() {
   const query = `*[_type == "portfolio" && category != null].category`;
 
   const data: string[] = await client.fetch(query);
-  return data;
+  const uniqueCats = [...new Set(data)];
+  return uniqueCats;
 }
