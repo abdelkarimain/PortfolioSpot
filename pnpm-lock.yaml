@@ -78,6 +78,9 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.1.2(@types/react@19.1.0)
+      '@types/rss':
+        specifier: ^0.0.32
+        version: 0.0.32
       eslint:
         specifier: ^9
         version: 9.24.0(jiti@2.4.2)
@@ -2353,6 +2356,9 @@ packages:
 
   '@types/react@19.1.0':
     resolution: {integrity: sha512-UaicktuQI+9UKyA4njtDOGBD/67t8YEBt2xdfqu8+gP9hqPUPsiXlNPcpS2gVdjmis5GKPG3fCxbQLVgxsQZ8w==}
+
+  '@types/rss@0.0.32':
+    resolution: {integrity: sha512-2oKNqKyUY4RSdvl5eZR1n2Q9yvw3XTe3mQHsFPn9alaNBxfPnbXBtGP8R0SV8pK1PrVnLul0zx7izbm5/gF5Qw==}
 
   '@types/shallow-equals@1.0.3':
     resolution: {integrity: sha512-xZx/hZsf1p9J5lGN/nGTsuW/chJCdlyGxilwg1TS78rygBCU5bpY50zZiFcIimlnl0p41kAyaASsy0bqU7WyBA==}
@@ -8300,6 +8306,8 @@ snapshots:
   '@types/react@19.1.0':
     dependencies:
       csstype: 3.1.3
+
+  '@types/rss@0.0.32': {}
 
   '@types/shallow-equals@1.0.3': {}
 
