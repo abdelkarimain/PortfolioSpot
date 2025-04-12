@@ -2,21 +2,20 @@ import { ProjectCard } from "@/components/project-card";
 import { getCategories, getPortfolios } from "@/lib/data";
 import Link from "next/link";
 
-type SearchParams = {
-  category?: string;
-};
+interface PageProps {
+  params: { [key: string]: string | string[] | undefined };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
 
 export const revalidate = 3600; // Revalidate every hour
 
 export default async function ProjectsPage({
   searchParams,
-}: {
-  searchParams: SearchParams;
-}) {
+}: PageProps) {
   const portfolios = await getPortfolios();
   const categories = await getCategories();
   
-  const currentCategory = searchParams.category || 'all';
+  const currentCategory = searchParams.category as string || 'all';
   
   // Filter portfolios based on the selected category
   const filteredPortfolios = 
