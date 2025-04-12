@@ -5,6 +5,8 @@ import { blurDataImage } from "@/lib/utils";
 import { urlFor } from "@/lib/sanity-client";
 import Link from "next/link";
 
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
   const portfolios = await getPortfolios();
   const ids = portfolios.map((portfolio) => ({ id: portfolio.id }));
