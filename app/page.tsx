@@ -2,26 +2,24 @@ import { ProjectCard } from "@/components/project-card";
 import { getCategories, getPortfolios } from "@/lib/data";
 import Link from "next/link";
 
-interface PageProps {
-  params: { [key: string]: string | string[] | undefined };
+export const revalidate = 3600;
+
+type SearchParamsProps = {
+  params: { id?: string };
   searchParams: { [key: string]: string | string[] | undefined };
-}
+};
 
-export const revalidate = 3600; // Revalidate every hour
-
-export default async function ProjectsPage({
-  searchParams,
-}: PageProps) {
+export default async function ProjectsPage({ searchParams }: SearchParamsProps) {
   const portfolios = await getPortfolios();
   const categories = await getCategories();
   
-  const currentCategory = searchParams.category as string || 'all';
-  
-  // Filter portfolios based on the selected category
-  const filteredPortfolios = 
-    currentCategory === 'all' 
-      ? portfolios 
-      : portfolios.filter(p => p.category === currentCategory);
+  const category = searchParams.category as string | undefined;
+  const currentCategory = category || "all";
+
+  const filteredPortfolios =
+    currentCategory === "all"
+      ? portfolios
+      : portfolios.filter((p) => p.category === currentCategory);
 
   return (
     <div className="space-y-8">
@@ -45,10 +43,10 @@ export default async function ProjectsPage({
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <Link 
+        <Link
           href="/"
           className={`px-3 py-1 text-sm rounded-md transition-colors ${
-            currentCategory === 'all'
+            currentCategory === "all"
               ? "bg-primary/70 text-secondary-foreground"
               : "bg-secondary text-secondary-foreground/80 hover:bg-secondary/80"
           }`}
