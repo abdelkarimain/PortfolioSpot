@@ -1,7 +1,5 @@
 import { client } from "./sanity-client";
 
-
-
 export type Portfolio = {
   id: string;
   owner: string;
@@ -28,6 +26,23 @@ export async function getPortfolios() {
       }`;
 
   const data: Portfolio[] = await client.fetch(query);
+  return data;
+}
+
+export async function getPortfolio(id: string) {
+  const query = `
+      *[_type == "portfolio" && approved && _id == '${id}'] {
+        "id": _id,
+        owner,
+        image,
+        technologies,
+        category,
+        url,
+        github,
+        publishedAt
+      }[0]`;
+
+  const data: Portfolio = await client.fetch(query);
   return data;
 }
 

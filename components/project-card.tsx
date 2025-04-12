@@ -3,12 +3,13 @@ import { urlFor } from "@/lib/sanity-client";
 import { blurDataImage } from "@/lib/utils";
 import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function ProjectCard({ portfolio }: { portfolio: Portfolio }) {
   return (
     <div>
       <div className="card-hover bg-card rounded-md overflow-hidden h-full flex flex-col">
-        <div className="relative h-48">
+        <Link href={`/portfolio/${portfolio.id}`} className="relative h-48">
           <Image
             fill
             priority
@@ -23,7 +24,7 @@ export function ProjectCard({ portfolio }: { portfolio: Portfolio }) {
             }
             className="object-cover h-80 object-top rounded-t-md"
           />
-        </div>
+        </Link>
         <div className="p-4 flex-1 flex flex-col">
           <h3 className="text-lg font-bold text-secondary-foreground/90 mb-2">
             {portfolio.owner}
@@ -40,7 +41,7 @@ export function ProjectCard({ portfolio }: { portfolio: Portfolio }) {
           </div>
           <div className="flex justify-end flex-wrap gap-2 border-t border-secondary mt-4 pt-3">
             <button className="hover:bg-primary/60 cursor-pointer flex justify-center items-center gap-2 px-2 py-1 border rounded">
-              <a href={portfolio.github} target="_blank">
+              <a href={portfolio.url} target="_blank">
                 <ExternalLink className="size-5" />
               </a>
             </button>
