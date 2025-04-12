@@ -4,16 +4,15 @@ import Link from "next/link";
 
 export const revalidate = 3600;
 
-type SearchParamsProps = {
-  params: { id?: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+type Props = {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export default async function ProjectsPage({ searchParams }: SearchParamsProps) {
+export default async function ProjectsPage({ searchParams }: Props) {
   const portfolios = await getPortfolios();
   const categories = await getCategories();
-  
-  const category = searchParams.category as string | undefined;
+  const { category } = await searchParams;
+
   const currentCategory = category || "all";
 
   const filteredPortfolios =
